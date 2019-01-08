@@ -1,9 +1,9 @@
 <?php namespace Anomaly\GitlabExtension;
 
 use Abraham\GitlabOAuth\GitlabOAuth;
-use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
 use Anomaly\GitlabExtension\Gitlab\GitlabConnection;
 use Anomaly\GitlabExtension\Gitlab\GitlabExtensionPlugin;
+use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
 use Gitlab\Client;
 use Illuminate\Contracts\Config\Repository;
 
@@ -34,17 +34,20 @@ class GitlabExtensionServiceProvider extends AddonServiceProvider
     public function boot(Repository $config)
     {
 
+        $token = $config->get('anomaly.extension.gitlab::gitlab.token');
+        $url   = $config->get('anomaly.extension.gitlab::gitlab.url');
+
         /**
          * Setup our pre-configured GitLab client instance alias.
          */
-        if ($token = $config->get('anomaly.extension.gitlab::gitlab.token')) {
+        if ($token && $url) {
             $this->app->singleton(
                 GitlabConnection::class,
-                function () use ($token) {
+                function () use ($token, $url) {
 
-                    $client = new Client();
+                    $client = Client::create($url);
 
-                    $client->authenticate($token, null, 'http_token');
+                    $client->authenticate($token, Client::AUTH_URL_TOKEN);
 
                     return new GitlabConnection($client);
                 }

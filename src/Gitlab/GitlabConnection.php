@@ -1,6 +1,5 @@
 <?php namespace Anomaly\GitlabExtension\Gitlab;
 
-use Abraham\GitlabOAuth\GitlabOAuth;
 use Gitlab\Client;
 
 /**

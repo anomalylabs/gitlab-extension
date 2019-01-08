@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'token' => env('GITHUB_TOKEN'),
+    'token' => env('GITLAB_TOKEN'),
+    'url'   => env('GITLAB_URL'),
 ];

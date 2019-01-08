@@ -8,4 +8,9 @@ return [
             'token',
         ],
     ],
+    'gitlab'                => [
+        'fields' => [
+            'url',
+        ],
+    ],
 ];
