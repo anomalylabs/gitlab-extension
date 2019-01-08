@@ -1,0 +1,37 @@
+{
+    "name": "anomaly/gitlab-extension",
+    "type": "streams-addon",
+    "description": "Gitlab API authorization and integration.",
+    "keywords": [
+        "streams addon",
+        "gitlab api"
+    ],
+    "homepage": "http://pyrocms.com/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PyroCMS, Inc.",
+            "email": "support@pyrocms.com",
+            "homepage": "http://pyrocms.com/",
+            "role": "Owner"
+        },
+        {
+            "name": "Ryan Thompson",
+            "email": "ryan@pyrocms.com",
+            "homepage": "http://ryanthepyro.com/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "support@pyrocms.com"
+    },
+    "require": {
+        "m4tthumphrey/php-gitlab-api": "^9.11",
+        "php-http/guzzle6-adapter": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Anomaly\\GitlabExtension\\": "src/"
+        }
+    }
+}
